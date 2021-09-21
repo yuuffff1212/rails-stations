@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>映画タイトル</th>
+    <th>公開年</th>
+    <th>上映中か</th>
+    <th>概要</th>
+    <th>画像URL</th>
+    <th>作成日時</th>
+    <th>更新日時</th>
+  </tr>
+  <tr>
+    <% @movies.each do |movie| %>
+      <td><%= movie.id %></td>
+      <td><%= movie.name %></td>
+      <td><%= movie.year %></td>
+      <td><%= movie.is_showing? ? "公開中です" : "上映予定です" %></td>
+      <td><%= movie.description %></td>
+      <td><%= link_to "画像", movie.image_url %></td>
+      <td><%= movie.created_at %></td>
+      <td><%= movie.updated_at %></td>
+    <% end %>
+  </tr>
+</table>
+</body>
+</html>
