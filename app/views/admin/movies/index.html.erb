@@ -23,7 +23,7 @@
       <td><%= movie.id %></td>
       <td><%= movie.name %></td>
       <td><%= movie.year %></td>
-      <td><%= movie.is_showing? ? "公開中です" : "上映予定です" %></td>
+      <td><%= movie.is_showing? ? "上映中" : "上映予定" %></td>
       <td><%= movie.description %></td>
       <td><%= link_to "画像", movie.image_url %></td>
       <td><%= movie.created_at %></td>
