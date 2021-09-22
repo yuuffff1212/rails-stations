@@ -18,18 +18,21 @@
     <th>作成日時</th>
     <th>更新日時</th>
   </tr>
-  <tr>
-    <% @movies.each do |movie| %>
+
+  <% @movies.each do |movie| %>
+    <tr>
       <td><%= movie.id %></td>
       <td><%= movie.name %></td>
       <td><%= movie.year %></td>
       <td><%= movie.is_showing? ? "上映中" : "上映予定" %></td>
       <td><%= movie.description %></td>
-      <td><%= link_to "画像", movie.image_url %></td>
+      <td><img src="<%= movie.image_url %>" alt="#"></td>
       <td><%= movie.created_at %></td>
       <td><%= movie.updated_at %></td>
-    <% end %>
-  </tr>
+    </tr>
+    <%= link_to "編集する", edit_admin_movie_path(movie.id) %>
+  <% end %>
 </table>
+<%= link_to "登録画面へ", new_admin_movie_path %>
 </body>
 </html>

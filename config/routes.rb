@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :movies, only: :index
 
   namespace :admin do
-    resources :movies, only: :index
+    resources :movies, only: %i[index new create edit update]
   end
 end
