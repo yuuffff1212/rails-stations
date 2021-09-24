@@ -31,6 +31,7 @@
       <td><%= movie.updated_at %></td>
     </tr>
     <%= link_to "編集する", edit_admin_movie_path(movie.id) %>
+    <%= link_to "削除する", admin_movie_path(movie.id), method: :delete, data: { confirm: "本当に削除してよろしいでしょうか？"} %>
   <% end %>
 </table>
 <%= link_to "登録画面へ", new_admin_movie_path %>

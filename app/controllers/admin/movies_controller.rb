@@ -2,7 +2,7 @@
 
 module Admin
   class MoviesController < ApplicationController
-    before_action :set_movie, only: %i[edit update]
+    before_action :set_movie, only: %i[edit update destroy]
 
     def index
       @movies = Movie.all
@@ -35,6 +35,13 @@ module Admin
       end
     end
 
+    def destroy
+      if @movie.destroy
+        flash[:notice] = '削除に成功しました'
+        redirect_to admin_movies_path
+      end
+    end
+
     private
 
     def movie_params
@@ -44,5 +51,6 @@ module Admin
     def set_movie
       @movie = Movie.find(params[:id])
     end
+
   end
 end
