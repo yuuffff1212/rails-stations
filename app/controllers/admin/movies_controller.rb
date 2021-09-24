@@ -37,13 +37,12 @@ module Admin
 
     private
 
+    def movie_params
+      params.require(:movie).permit(:id, :name, :year, :description, :is_showing, :image_url)
+    end
+
     def set_movie
       @movie = Movie.find(params[:id])
     end
-
-    def movie_params
-      params[:movie].permit(:id, :name, :year, :description, :is_showing, :image_url)
-    end
-
   end
 end
