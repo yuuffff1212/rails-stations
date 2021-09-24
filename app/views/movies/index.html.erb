@@ -1,15 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+<%= form_with(url: movies_path, method: 'get', local: true) do |f| %>
+  <%= f.text_field :search, placeholder: "映画館を検索する" %>
+  <%= f.submit "検索する" %>
+  <%= f.radio_button :is_showing, 0 %>上映予定
+  <%= f.radio_button :is_showing, 1 %>上映中
+  <%= f.radio_button :is_showing, "" %>すべて
+<% end %>
 <% @movies.each do |movie| %>
-  <%= image_tag movie.image_url %>
+  <td><img src="<%= movie.image_url %>" alt="#"></td>
   <%= movie.name %>
 <% end %>
-</body>
-</html>
+
