@@ -18,11 +18,11 @@ class Movie < ApplicationRecord
       Movie.all
     end
 
-    if search != ''
-      Movie.where(is_showing: search([:is_showing]))
-    else
-      Movie.all
-    end
+    # if search != ''
+    #   Movie.where(is_showing: search([:is_showing]))
+    # else
+    #   Movie.all
+    # end
   end
 
   mount_uploader :image_url, ImageUploader

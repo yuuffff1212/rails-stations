@@ -1,0 +1,7 @@
+<%= form_with(url: movies_path, method: 'get', local: true) do |f| %>
+  <%= f.radio_button :is_showing, 0 %>公開予定
+  <%= f.radio_button :is_showing, 1 %>公開中
+  <%= f.radio_button :is_showing, "" %>すべて
+  <%= f.text_field :search, placeholder: "映画館を検索する" %>
+  <%= f.submit "検索する" %>
+<% end %>
